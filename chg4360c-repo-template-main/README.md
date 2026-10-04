@@ -9,21 +9,20 @@ to assess if they fall within specified ranges.
 
 ## Features
 The `BioprocessMonitor` class does a few things:
-* Extracts fermentation data from a CSV file
-* Selects data for individual batches
-* Counts the total number of batches
-* Uses masks to identify batches with optimal pH and temperature measurements
-* Creates and saves dashboards showing concentrations, temperatures, pH and dissolved oxygen versus time for each batch
-* Exports a CSV summary table showing each batch's percentage of acceptable pH and temperature measurements,and its final 
-product concentration
+* Extracts fermentation data from a CSV file.
+* Selects data for individual batches.
+* Counts the total number of batches.
+* Uses masks to identify batches with optimal pH and temperature measurements.
+* Creates and saves dashboards showing concentrations, temperatures, pH and dissolved oxygen versus time for each batch.
+* Exports a CSV summary table showing each batch's percentage of acceptable pH and temperature measurements, and its final product concentration.
 
 ## Technologies used
 Here are the technologies used to code this project:
 * Python 3.14.7
-* NumPy 2.5.2 for arrays operations and masks calculations
-* pandas 3.0.5 to load CSV files, extract batch measurements and exporting summary tables
-* Matplotlib 3.11.0 to create, format and save the dashboards
-* os (Python standard library) to construct file paths
+* NumPy 2.5.2 for arrays operations and masks calculations.
+* pandas 3.0.5 to load CSV files, extract batch measurements and exporting summary tables.
+* Matplotlib 3.11.0 to create, format and save the dashboards.
+* os (Python standard library) to construct file paths.
 
 ## Code Design
 Running `main.py` analyzes the fermentation data using two sets of limits: modes A and B.
