@@ -106,7 +106,7 @@ metric.
 
 ![Polynomial regression validation curves](figures/figure_01_validation_curves_poly.png)
 
-As shown in Figure 1, the lowest cross-validation RMSE score was achieved by the second-degree polynomial. Table 1 
+As shown in Figure 1, the lowest cross-validation RMSE score was achieved by the second-degree polynomial. [Table 1](https://github.com/cam0301/chg4360c-demo/blob/main/Predicting%20cell%20growth%20rates%20using%20Machine%20Learning/tables/table_01_polynomial_cv_results.csv) 
 presents the cross-validation results for the different polynomial degrees, confirming that the lowest RMSE score was
 achieved by the second-degree model, with a RMSE of approximately 0.1542 d^-1^. 
 
@@ -162,7 +162,7 @@ illustrates how the number of neighbors and the weighting method influence KNN r
 
 ![KNN regression validation curves](figures/figure_03_validation_curve_knn.png)
 
-As shown in Table 2, the optimal hyperparameter configuration used distance-based weighting with 9 neighbors,
+As shown in [Table 2](https://github.com/cam0301/chg4360c-demo/blob/main/Predicting%20cell%20growth%20rates%20using%20Machine%20Learning/tables/table_02_knn_cv_results.csv), the optimal hyperparameter configuration used distance-based weighting with 9 neighbors,
 achieving a cross-validation RMSE of approximately 0.1515 d^-1^. These results show that when calculating predictions, 
 distance weighting gives greater influence to closer observations. It is also observed that smaller neighbor counts will 
 produce more complex predictions which are sensitive to individual observations, while larger neighbor counts might 
