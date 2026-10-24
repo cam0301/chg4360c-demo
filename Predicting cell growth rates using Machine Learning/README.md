@@ -1,16 +1,10 @@
 # Cell Growth Rate Prediction Using Machine Learning
-
----
-
 This project develops a machine learning model that can predict the specific growth rate of cells based on four 
 different cell culture variables: temperature, pH, glucose concentration and lactate concentration. Polynomial and 
 k-nearest neighbors regressions are implemented and compared to determine a suitable predictive model. The selected 
 model is then used to study the effects of each cell culture variable on cell growth, and its reliability is evaluated. 
 
 ## Highlights
-
----
-
 * Developed polynomial and k-nearest neighbor regression models.
 * Implemented feature standardization using pipelines.
 * Optimized model hyperparameters using grid search cross-validation.
@@ -18,9 +12,6 @@ model is then used to study the effects of each cell culture variable on cell gr
 * Visualized results using plots and tables.
 
 ## Environment
-
----
-
 The following technology was used in this project:
 
 * Python 3.14.7
@@ -30,9 +21,6 @@ The following technology was used in this project:
 * scikit-learn 1.9.0
 
 ## Code Design
-
----
-
 `main.py` can be divided into five sections
 
 ### Data loading and preparation
@@ -104,9 +92,6 @@ All these figures are saved as PNG files in the figures directory and the releva
 as CSV files in the tales directory.
 
 ## Analysis
-
----
-
 ### Initial model selection
 Polynomial regression was initially selected to predict the specific cell growth rate based on the four input variables
 because it can represent nonlinear relationships between the features and the target. In fact, while linear regression
@@ -125,7 +110,14 @@ As shown in Figure 1, the lowest cross-validation RMSE score was achieved by the
 presents the cross-validation results for the different polynomial degrees, confirming that the lowest RMSE score was
 achieved by the second-degree model, with a RMSE of approximately 0.1542 d^-1^. 
 
-[Table 1: Polynomial regression cross-validation results](tables/table_01_polynomial_cv_results.csv)
+|rank_test_score|param_polynomialfeatures__degree|mean_test_score     |
+|---------------|--------------------------------|--------------------|
+|1              |2                               |-0.1542291364059797 |
+|2              |3                               |-0.16452155132164398|
+|3              |1                               |-0.17387851917345115|
+|4              |4                               |-0.2289139488940485 |
+|5              |5                               |-0.6042549009766749 |
+
 
 These results also shows that increasing the degree beyond two did not improve the validation performance, despite the 
 added complexity. This suggests that additional complexity could increase the risk of overfitting. Therefore, second
@@ -168,7 +160,7 @@ Hyperparameter optimization for KNN was also conducted using a four-fold cross-v
 from 1 to 80. The same RMSE evaluation metric was selected to allow comparison with the polynomial regression. Figure 3
 illustrates how the number of neighbors and the weighting method influence KNN regression prediction.
 
-![KNN regression validation curves](figures/figure_03_validation_curves_knn.png)
+![KNN regression validation curves](figures/figure_03_validation_curve_knn.png)
 
 As shown in Table 2, the optimal hyperparameter configuration used distance-based weighting with 9 neighbors,
 achieving a cross-validation RMSE of approximately 0.1515 d^-1^. These results show that when calculating predictions, 
@@ -176,7 +168,19 @@ distance weighting gives greater influence to closer observations. It is also ob
 produce more complex predictions which are sensitive to individual observations, while larger neighbor counts might 
 conceal important growth rate variations.
 
-[Table 2: KNN regression cross-validation results](tables/table_02_knn_cv_results.csv)
+|rank_test_score|param_kneighborsregressor__n_neighbors|param_kneighborsregressor__weights|mean_test_score     |
+|---------------|--------------------------------------|----------------------------------|--------------------|
+|1              |9                                     |distance                          |-0.15154949304542978|
+|2              |10                                    |distance                          |-0.15186947346546603|
+|3              |7                                     |distance                          |-0.15213189290707774|
+|4              |11                                    |distance                          |-0.15245092530927495|
+|5              |8                                     |distance                          |-0.15296584277831374|
+|6              |9                                     |uniform                           |-0.1532708586523278 |
+|7              |6                                     |distance                          |-0.15347662163165898|
+|8              |13                                    |distance                          |-0.15348143994813845|
+|9              |12                                    |distance                          |-0.15350432139390674|
+|10             |14                                    |distance                          |-0.15352914106891077|
+
 
 The optimized KNN model was evaluated using the same metric, and it achieved a test RMSE of approximately 0.1587 d^-1^.
 While the KNN regression had a slightly better predictive performance on the training data (0.1515 versus 0.1542), it 
